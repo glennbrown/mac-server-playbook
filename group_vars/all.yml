@@ -1,0 +1,83 @@
+---
+
+downloads: ~/.ansible-downloads/
+
+# Dotfiles
+configure_dotfiles: true
+dotfiles_repo: git@github.com:glennbrown/dotfiles.git
+dotfiles_repo_version: main
+dotfiles_repo_accept_hostkey: true
+dotfiles_repo_local_destination: ~/Documents/dotfiles
+dotfiles_files:
+  - .zshrc
+  - .inputrc
+  - .macos_defaults
+  - .vimrc
+  - .bashrc
+  - .bash_profile
+
+configure_macos: true
+macos_services:
+  - Dock
+  - Finder
+  - SystemUIServer
+macos_default_script: "~/.macos_defaults --no-restart"
+macos_default_settings: []
+
+## Set to 'true' to configure the Dock via dockutil.
+configure_dock: false
+dockitems_remove: []
+# - Launchpad
+# - TV
+# - Podcasts
+# - 'App Store'
+dockitems_persist: []
+# - name: "Sublime Text"
+#   path: "/Applications/Sublime Text.app/"
+#   pos: 5
+
+homebrew_installed_packages:
+  - bash
+  - bash-completion@2
+  - btop
+  - brew-cask-completion
+  - coreutils
+  - dialog
+  - ffmpeg
+  - flac
+  - gawk
+  - git
+  - gnu-tar
+  - go
+  - htop
+  - iperf3
+  - jq
+  - just
+  - lame
+  - lesspipe
+  - lz4
+  - lzo
+  - nano
+  - nanorc
+  - ncurses
+  - neofetch
+  - nmap
+  - perl
+  - pv
+  - qemu
+  - ruby
+  - screenresolution
+  - smartmontools
+  - snappy
+  - socat
+  - svt-av1
+  - tmux
+  - webp
+  - wget
+  - when
+  - x264
+  - x265
+  - xvid
+  - xz
+  - zsh-autosuggestions
+  - zsh-history-substring-search
