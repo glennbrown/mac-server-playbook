@@ -1,0 +1,31 @@
+---
+
+- name: Configure MacOS Defaults
+  community.general.osx_defaults:
+    domain: "{{ item.domain | default('NSGlobalDomain') }}"
+    key: "{{ item.key }}"
+    type: "{{ item.type | default(omit) }}"
+    state: "{{ item.state | default(omit) }}"
+    array_add: "{{ item.array_add | default(omit) }}"
+    value: "{{ item.value | default(omit) }}"
+  loop: "{{ macos_default_settings }}"
+  register: macos_defaults_status
+
+- name: Restart affected services
+  command:  killall "{{ item }}"
+  loop: "{{ macos_services }}"
+  when: macos_defaults_status.changed
+
+- name: Logout Message 
+  debug:
+    msg: "Please log out and log back in to make all settings take effect."
+  when: macos_defaults_status.changed
+
+- name: Check if ~/Library is hidden
+  stat:
+    path: ~/Library
+  register: library_status
+  
+- name: Set ~/Library to not be hidden in Finder
+  command: chflags nohidden ~/Library
+  when: library_status.stat.flags != 0

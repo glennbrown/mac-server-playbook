@@ -16,6 +16,8 @@ dotfiles_files:
   - .bashrc
   - .bash_profile
 
+configure_terminal: false
+
 configure_macos: true
 macos_services:
   - Dock
@@ -36,20 +38,33 @@ dockitems_persist: []
 #   path: "/Applications/Sublime Text.app/"
 #   pos: 5
 
+homebrew_taps:
+  - homebrew/cask-fonts
+  - homebrew/command-not-found
+  - homebrew/services
+
 homebrew_installed_packages:
   - bash
   - bash-completion@2
   - btop
   - brew-cask-completion
   - coreutils
+  - ctop
+  - curl
   - dialog
+  - diceware
+  - fastfetch
   - ffmpeg
+  - fio
   - flac
+  - fwupd
   - gawk
-  - git
+  - gnupg
+  - gnu-sed
   - gnu-tar
   - go
   - htop
+  - iftop
   - iperf3
   - jq
   - just
@@ -57,21 +72,27 @@ homebrew_installed_packages:
   - lesspipe
   - lz4
   - lzo
+  - mactop
+  - mc
   - nano
   - nanorc
+  - ncdu
   - ncurses
   - neofetch
   - nmap
+  - p7zip
   - perl
   - pv
   - qemu
   - ruby
+  - screen
   - screenresolution
   - smartmontools
   - snappy
   - socat
   - svt-av1
   - tmux
+  - tree
   - webp
   - wget
   - when
@@ -79,5 +100,26 @@ homebrew_installed_packages:
   - x265
   - xvid
   - xz
+  - yt-dlp
   - zsh-autosuggestions
   - zsh-history-substring-search
+
+homebrew_cask_apps:
+  - 1password
+  - 1password-cli
+  - balenaetcher
+  - docker
+  - google-chrome
+  - handbrake
+  - iterm2
+  - plex-media-server
+  - prowlarr
+  - qbittorrent
+  - radarr
+  - sabnzbd
+  - sonarr
+  - timemachineeditor
+  - utm
+  - visual-studio-code
+
+mas_installed_apps: []
